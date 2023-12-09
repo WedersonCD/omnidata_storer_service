@@ -1,0 +1,13 @@
+services:
+  storer-service:
+    build: .
+    ports:
+      - "9952:9952"
+    volumes:
+      - .:/usr/src/app
+  mongodb:
+    image: mongo:7.0.4
+    volumes:
+      - ./data/db:/data/db
+    ports:
+      - "27017:27017"
