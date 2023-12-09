@@ -1,16 +1,13 @@
 const express = require('express');
 const helmet = require('helmet')
-const port = process.env.SERVICE_PORT || 9952
+const api_docs_routes = require('./api/api_docs_routes')
+
 const app = express();
+const port = process.env.SERVICE_PORT || 9952
 
-//set json
 app.use(express.json());
+app.use(helmet())
 
-//helmet set
-app.use(helmet)
-
-
-
-app.get('/', (req, res) => res.send('Storer Service is running'));
+app.use('/api-docs',api_docs_routes)
 
 app.listen(port, () => console.log(`Storer Service listening on port ${port}`));

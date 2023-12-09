@@ -3,11 +3,11 @@ services:
     build: .
     environment:
       - SERVICE_PORT:9952
-      - API_VERSION_LTS=1.1
+      - API_VERSION_LTS=0
     ports:
-      - "${SERVICE_PORT}:${SERVICE_PORT}"
+      - "9952:9952"
     volumes:
-      - ./src:/usr/src/app
+      - .:/usr/src/omnidata_storer_service
   mongodb:
     image: mongo:7.0.4
     volumes:
