@@ -1,5 +1,5 @@
 # mongo data base
-./data/db*
+data
 
 # Logs
 logs
