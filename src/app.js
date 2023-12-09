@@ -8,6 +8,6 @@ const port = process.env.SERVICE_PORT || 9952
 app.use(express.json());
 app.use(helmet())
 
-app.use('/api-docs',api_docs_routes)
+app.use('/storer/api-docs',api_docs_routes)
 
 app.listen(port, () => console.log(`Storer Service listening on port ${port}`));
