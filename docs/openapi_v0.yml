@@ -1,8 +1,25 @@
 openapi: 3.0.2
 info:
   title: Omnidata Storer Service
-  version: 0.1.0
+  version: 0.1.1
 paths:
+  /storer/users:
+    post:
+      summary: Store a new user
+      responses:
+        '201':
+          description: User Stored
+    get:
+      summary: Get a user list  
+      responses:
+        '200':
+          description: User list
+  /storer/users/{user_id}:
+    get:
+      summary: Get a specific user
+      responses:
+        '200':
+          description: a especific user
   /storer/data-products:
     post:
       summary: Store a new Data Product
