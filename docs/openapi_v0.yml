@@ -1,6 +1,6 @@
 openapi: 3.0.2
 info:
-  title: Omnidata Storer Servive
+  title: Omnidata Storer Service
   version: 0.1.0
 paths:
   /storer/data-products:
