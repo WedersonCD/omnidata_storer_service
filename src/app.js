@@ -1,6 +1,10 @@
 const express = require('express');
+const helmet = require('helmet')
+
 const app = express();
 const port = 9952;
+
+app.use(helmet)
 
 app.use(express.json());
 
