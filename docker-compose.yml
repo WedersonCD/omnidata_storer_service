@@ -1,8 +1,11 @@
 services:
   storer-service:
     build: .
+    environment:
+      - SERVICE_PORT:9952
+      - API_VERSION_LTS=1.1
     ports:
-      - "9952:9952"
+      - "${SERVICE_PORT}:${SERVICE_PORT}"
     volumes:
       - ./src:/usr/src/app
   mongodb:
