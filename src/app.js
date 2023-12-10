@@ -12,7 +12,7 @@ const app = express();
 const port = process.env.SERVICE_PORT || 9952
 
 app.use(express.json());
-//app.use(helmet())
+app.use(helmet())
 
 mongoService();
 

@@ -5,7 +5,7 @@ services:
     environment:
       - SERVICE_PORT:9952
       - API_VERSION_LTS=0
-      - MONGO_URI=mongodb://mongo:27017/omnidata
+      - MONGO_URI=mongodb://mongo:27017/omnidata_server
     ports:
       - "9952:9952"
     volumes:
