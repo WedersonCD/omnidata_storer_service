@@ -1,4 +1,4 @@
-const User = require('../models/User');
+const UserModel = require('../models/User');
 
 const userController = {}
 
@@ -32,7 +32,7 @@ userController.createUser = async (req, res) => {
 userController.getUserById = async (req, res) => {
     try {
         const userId = req.params.user_id;
-        const user = await User.findById(userId);
+        const user = await UserModel.findById(userId);
 
         if (!user) {
             return res.status(404).json({ message: 'User not found' });
@@ -48,7 +48,7 @@ const User = require('../models/User'); // Replace with your actual User model p
 // Get a list of all users
 userController.getAllUsers = async (req, res) => {
     try {
-        const users = await User.find();
+        const users = await UserModel.find();
         res.status(200).json(users);
     } catch (err) {
         res.status(500).json({ message: err.message });

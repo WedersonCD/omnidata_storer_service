@@ -1,7 +1,6 @@
 const mongoose = require('mongoose');
 
 const SchedulerSchema = new mongoose.Schema({
-    scheduler_id: {type: mongoose.Schema.Types.ObjectId,auto: true},
     scheduler_slaCRON: { type: String},
     scheduler_createdAt: { type: Date, required: true, default: Date.now() },
     scheduler_updatedAt: { type: Date},

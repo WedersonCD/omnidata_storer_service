@@ -1,7 +1,6 @@
 const mongoose = require('mongoose');
 
 const JobSchema = new mongoose.Schema({
-    job_id: { type: mongoose.Schema.Types.ObjectId, auto: true },
     scheduler_id: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Scheduler',
@@ -44,7 +43,7 @@ JobSchema.pre('save', function (next) {
         mongoose.model('Job').updateMany(
             {
                 job_isLastest: true,
-                job_id: { $ne: job.job_id },
+                _id: { $ne: job._id },
                 scheduler_id: job.scheduler_id
             },
             { $set: { job_isLastest: false } }
@@ -53,7 +52,7 @@ JobSchema.pre('save', function (next) {
         //set the lastest job in the Scheduler
         mongoose.model('Scheduler').updateOne(
             { scheduler_id: job.scheduler_id },
-            { job_lastest: job.job_id }
+            { job_lastest: job._id }
         ).exec();
     }
 

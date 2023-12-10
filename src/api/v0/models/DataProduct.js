@@ -1,7 +1,6 @@
 const mongoose = require('mongoose')
 
 const dataProductSchema = new mongoose.Schema({
-    dataProduct_id: {type: mongoose.Schema.Types.ObjectId,auto: true},
     dataProduct_name: {type: String,required: true},
     dataProduct_dominium: {type: String,required: true},
     user_owner:  {
