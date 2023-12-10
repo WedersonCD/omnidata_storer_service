@@ -1,14 +1,17 @@
 services:
   storer-service:
+    container_name: storer-service
     build: .
     environment:
       - SERVICE_PORT:9952
       - API_VERSION_LTS=0
+      - MONGO_URI=mongodb://mongo:27017/omnidata
     ports:
       - "9952:9952"
     volumes:
       - .:/usr/src/omnidata_storer_service
   mongodb:
+    container_name: mongo
     image: mongo:7.0.4
     volumes:
       - ./data/db:/data/db

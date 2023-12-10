@@ -1,14 +1,33 @@
 openapi: 3.0.2
 info:
   title: Omnidata Storer Service
-  version: 0.1.1
+  version: 0.1.2
 paths:
   /storer/users:
     post:
       summary: Store a new user
+      requestBody:
+        required: true
+        content:
+          application/json:
+              schema:
+                type: object
+                properties:
+                  user_name:
+                    type: string
+                    description: The user full name
+                    example: Wederson Domingues
+                  user_externalId:
+                    type: string
+                    description: The user AD id
+                    example: gabriela\wederson.domingues
       responses:
         '201':
           description: User Stored
+        '500':
+          description: Error in database
+        '400':
+          description: Error in parameters
     get:
       summary: Get a user list  
       responses:
@@ -17,6 +36,12 @@ paths:
   /storer/users/{user_id}:
     get:
       summary: Get a specific user
+      parameters:
+        - name: user_id
+          in: path
+          required: true
+          schema:
+            type: string
       responses:
         '200':
           description: a especific user
