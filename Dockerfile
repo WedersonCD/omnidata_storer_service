@@ -9,5 +9,5 @@ ENV API_VERSION_LTS=0
 ENV MONGO_URI=mongodb://mongo:27017/omnidata
 
 EXPOSE ${SERVICE_PORT}
-CMD ["node", "src/app.js"]
+CMD ["nodemon", "src/app.js"]
 
