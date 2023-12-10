@@ -35,11 +35,12 @@ paths:
           description: User list
   /storer/users/{user_id}:
     get:
-      summary: Get a specific user
+      summary: Get a specific user by user_id
       parameters:
         - name: user_id
           in: path
           required: true
+          example: 65758e91c5d4577589e699f5
           schema:
             type: string
       responses:
