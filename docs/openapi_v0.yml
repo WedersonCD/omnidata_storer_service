@@ -49,10 +49,46 @@ paths:
   /storer/data-products:
     post:
       summary: Store a new Data Product
+      requestBody:
+        required: true
+        content:
+          application/json:
+              schema:
+                type: object
+                properties:
+                  dataProduct_name:
+                    type: string
+                    description: The data product name.
+                    example: Etiquetas Amarelas
+                  dataProduct_dominium:
+                    type: string
+                    description: Data product dominium
+                    example: CP
+                  user_owner:
+                    type: string
+                    description: Data product user ID
+                    example: 6575960856f33537b005f9aa
       responses:
         '201':
           description: Data Product stored
+    get:
+      summary: Get data product list
+      responses:
+        '200':
+          description: Sucessful
   /storer/data-products/{data_product_id}:
+    get:
+      summary: Get a especific data product
+      parameters:
+        - name: data_product_id
+          in: path
+          required: true
+          example: 65758e91c5d4577589e699f5
+          schema:
+            type: string
+      responses:
+        '200':
+          description: a especific user
     patch:
       summary: Update the qlik app layout id of a Data Product
       parameters:

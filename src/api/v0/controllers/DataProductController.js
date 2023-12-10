@@ -4,7 +4,7 @@ const DataProductController = {}
 
 DataProductController.getAllDataProducts = async (req, res) => {
     try {
-        const dataProducts = await DataProductModel.find().populate('user_owner');
+        const dataProducts = await DataProductModel.find();
         res.status(200).json(dataProducts);
     } catch (err) {
         res.status(500).json({ message: err.message });
@@ -14,8 +14,8 @@ DataProductController.getAllDataProducts = async (req, res) => {
 
 DataProductController.getDataProductById = async (req, res) => {
     try {
-        const dataProductId = req.params.dataProduct_id;
-        const dataProduct = await DataProductModel.findById(dataProductId).populate('user_owner');
+        const dataProductId = req.params.data_product_id;
+        const dataProduct = await DataProductModel.findById(dataProductId);
 
         if (!dataProduct) {
             return res.status(404).json({ message: 'Data Product not found' });
