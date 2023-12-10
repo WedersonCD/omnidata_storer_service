@@ -14,7 +14,7 @@ userController.createUser = async (req, res) => {
         }
 
         // Create a new user instance
-        const newUser = new User({ user_name, user_externalId });
+        const newUser = new UserModel({ user_name, user_externalId });
 
         
         // Save the user to the database
@@ -43,7 +43,6 @@ userController.getUserById = async (req, res) => {
         res.status(500).json({ message: err.message });
     }
 };
-const User = require('../models/User'); // Replace with your actual User model path
 
 // Get a list of all users
 userController.getAllUsers = async (req, res) => {
