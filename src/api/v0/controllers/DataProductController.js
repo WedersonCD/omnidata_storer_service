@@ -11,7 +11,6 @@ DataProductController.getAllDataProducts = async (req, res) => {
     }
 };
 
-
 DataProductController.getDataProductById = async (req, res) => {
     try {
         const dataProductId = req.params.data_product_id;
@@ -42,6 +41,5 @@ DataProductController.createDataProduct = async (req, res) => {
         res.status(400).json({ message: err.message });
     }
 };
-
 
 module.exports = DataProductController;

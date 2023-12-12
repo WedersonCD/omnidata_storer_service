@@ -44,7 +44,7 @@ schedulerController.getSchedulerById = async (req, res) => {
     }
 };
 
-userController.getAllScheduler = async (req, res) => {
+schedulerController.getAllScheduler = async (req, res) => {
     try {
         const scheduler = await SchedulerModel.find();
         res.status(200).json(scheduler);
