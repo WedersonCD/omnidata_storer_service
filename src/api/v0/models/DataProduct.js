@@ -10,6 +10,7 @@ const dataProductSchema = new mongoose.Schema({
     },
     dataProduct_createdAt:{type:Date,default:Date.now()},
     dataProduct_updatedAt:{type:Date},
+    dataLocations:[mongoose.Schema.Types.Mixed]
 })
 
 dataProductSchema.pre('save', function(next) {
